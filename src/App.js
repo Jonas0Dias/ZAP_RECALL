@@ -5,20 +5,19 @@ import Perguntas from './Components/Perguntas';
 import Footer from './Components/Footer';
 import cards from './Components/cards';
 function App() {
-  const [displayopen,setDisplayOpen] = React.useState(true)
-  const [listaclicados, setListaClicados] =  React.useState([])
+  
   return (
     <>
       <GlobalStyle />
       <Container>
         <LogoContainer>
-          <img src="assets/img/logo.png"></img>
+          <img src="assets/img/logo.png" ></img>
           <h1>ZapRecall</h1>
         </LogoContainer>
-        <Perguntas listaclicados={listaclicados} setListaClicados={setListaClicados} cards={cards} displayopen={displayopen} setDisplayOpen = {setDisplayOpen}>
+        <Perguntas>
           
         </Perguntas>
-        <Footer cards={cards}></Footer>
+        <Footer ></Footer>
       </Container>
 
     </>
@@ -39,7 +38,7 @@ const Container = styled.div`
   padding: 0px;
   padding-bottom: 200px;
 
-`;
+`
 
 const LogoContainer = styled.div`
 

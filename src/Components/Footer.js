@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import cards from './cards';
 export default function Footer(props){
     return(
-        <Rodape>0/{props.cards.length} Concluídos</Rodape>
+        <Rodape>0/{cards.length} Concluídos</Rodape>
     )
 }
 
