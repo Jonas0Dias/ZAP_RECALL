@@ -1,74 +1,23 @@
 import styled from 'styled-components';
 import cards from './cards';
 import React from 'react'
+import RenderizaBotões from './RenderizarBotões';
 // import React from 'react'
 // const [displayopen,setDisplayOpen] = React.useState(false)
 
-
-
 export default function Buttons() {
+
+
+
     const [listaclicados, setListaClicados] = React.useState([])
     const [listaclicados2, setListaClicados2] = React.useState([])
     const [listaclicados3, setListaClicados3] = React.useState([])
+    
     return (
         <>
             {cards.map(c =>
                 <>
-                    <ButtonQuestionClosed display={listaclicados.includes(c) ? true : false}>
-                        <h1>Pergunta {cards.indexOf(c) + 1}</h1>
-                        <ion-icon name="caret-forward-outline"
-                            onClick={() => {
-
-                                setListaClicados([...listaclicados, c])
-
-                            }}
-
-                        >
-
-                        </ion-icon>
-                    </ButtonQuestionClosed>
-
-
-
-                    <ButtonQuestionOpened display={!listaclicados.includes(c) || listaclicados2.includes(c) ? true : false}>
-                        <h1> {c.question}</h1>
-                        <ion-icon name="add-circle-outline"
-                            onClick={() => {                               
-                                setListaClicados2([...listaclicados2, c])
-                            }}
-                        ></ion-icon>
-
-                    </ButtonQuestionOpened>
-
-
-
-
-                    <ButtonAnswer display={!listaclicados2.includes(c) || listaclicados3.includes(c)  ? true : false}>
-                        <h1> {c.question}</h1>
-                        <div>
-                            <button 
-                                onClick={() => {                               
-                                    setListaClicados3([...listaclicados3, c])
-                            }}>Não Lembrei
-                            </button>
-                            <button onClick={() => {                               
-                                    setListaClicados3([...listaclicados3, c])
-                            }}>Quase não lembrei</button>
-                            <button onClick={() => {                               
-                                    setListaClicados3([...listaclicados3, c])
-                            }} >Zap!</button>
-                        </div>
-                    </ButtonAnswer>
-
-
-
-
-                    <ButtonFinish display={!listaclicados3.includes(c) ? true : false}>
-                    <div>
-                            Tem que aparecer quando finaliza a pergunta
-                        </div>
-
-                    </ButtonFinish>
+                    <RenderizaBotões c={c} listaclicados={listaclicados} setListaClicados={setListaClicados} listaclicados2={listaclicados2} setListaClicados2={setListaClicados2} listaclicados3={listaclicados3} setListaClicados3={setListaClicados3}></RenderizaBotões>
                 </>
             )
             }
@@ -79,94 +28,6 @@ export default function Buttons() {
     )
 }
 
-const ButtonFinish = styled.div`
-display:${props => props.display ? 'none' : 'flex'};
-align-items: center;
-background-color:white;
-justify-content: space-between;
-text-align: center;
-height: 65px;
-font-family: 'Recursive';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 14px;
-margin-bottom:5px;
-border-radius: 5px;
-h1{
-  margin-left:15px;
-}
-ion-icon{
-  margin-right:20px;
-}
-`
-
-
-const ButtonAnswer = styled.div`
-display:${props => props.display ? 'none' : 'flex'};
-align-items: center;
-background-color:white;
-justify-content: space-between;
-text-align: center;
-height: 65px;
-font-family: 'Recursive';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 14px;
-margin-bottom:5px;
-border-radius: 5px;
-h1{
-  margin-left:15px;
-}
-ion-icon{
-  margin-right:20px;
-}
-`
-
-
-const ButtonQuestionClosed = styled.div`   
-            display:${props => props.display ? 'none' : 'flex'};
-            align-items: center;
-            background-color:white;
-            justify-content: space-between;
-            text-align: center;
-            height: 65px;
-            font-family: 'Recursive';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 12px;
-            line-height: 14px;
-            margin-bottom:5px;
-            border-radius: 5px;
-            h1{
-              margin-left:15px;
-            }
-            ion-icon{
-              margin-right:20px;
-            }
-          `
-
-const ButtonQuestionOpened = styled.div`   
-          display:${props => props.display ? 'none' : 'flex'};
-          align-items: center;
-          background-color:white;
-          justify-content: space-between;
-          text-align: center;
-          height: 65px;
-          font-family: 'Recursive';
-          font-style: normal;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 14px;
-          margin-bottom:5px;
-          border-radius: 5px;
-          h1{
-            margin-left:15px;
-          }
-          ion-icon{
-            margin-right:20px;
-          }
 
 
 
@@ -333,3 +194,5 @@ const ButtonQuestionOpened = styled.div`
 //         background:  #2FBE34;
 //     }
 // `
+
+
