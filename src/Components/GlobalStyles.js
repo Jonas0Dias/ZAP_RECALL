@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
  
 const GlobalStyle = createGlobalStyle`
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,6 +20,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	font-family: 'Recursive';
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -47,6 +50,8 @@ table {
 strong {
 	font-weight: bold;
 }
+
+
 `
  
 export default GlobalStyle
