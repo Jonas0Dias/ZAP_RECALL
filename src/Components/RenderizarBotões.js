@@ -36,7 +36,7 @@ export default function RenderizaBotões(props){
 
 
                     <ButtonAnswer display={!props.listaclicados2.includes(props.c) || props.listaclicados3.includes(props.c) ? true : false}>
-                        <h1> {props.c.question}</h1>
+                        <h1> {props.c.answer}</h1>
                         <div>
                             <button
                                 onClick={() => {
@@ -114,7 +114,7 @@ background:#FFFFD4;
 flex-direction: column;
 align-items: center;
 min-height: 100px;
-justify-content:flex-start;
+justify-content:space-between;
 text-align: center;
 height: 65px;
 font-family: 'Recursive';
@@ -134,7 +134,7 @@ ion-icon{
 
 div{
     width:90%;
-    margin-top:22px;
+    margin-bottom:10px;
     display:flex;
     justify-content:space-between;
     

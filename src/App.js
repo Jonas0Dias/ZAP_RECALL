@@ -5,17 +5,28 @@ import Perguntas from './Components/Perguntas';
 import Footer from './Components/Footer';
 import cards from './Components/cards';
 function App() {
-  const[contador,setContador] =  React.useState(0)
+  const [contador, setContador] = React.useState(0)
+  const [entrada,setEntrada] = React.useState(true)
   return (
     <>
       <GlobalStyle />
-      <Container>
+      <TelaEntrada display={entrada}>
+        <div>
+          <img src='assets/img/logo.png'></img>
+          <h1>ZapRecall</h1>
+          <button onClick={()=> setEntrada(!entrada)}>Iniciar Recall</button>
+        </div>
+      </TelaEntrada>
+      <Container display={entrada}>
         <LogoContainer>
+
           <img src="assets/img/logo.png" ></img>
           <h1>ZapRecall</h1>
+
+
         </LogoContainer>
         <Perguntas contador={contador} setContador={setContador}>
-          
+
         </Perguntas>
         <Footer contador={contador} setContador={setContador}></Footer>
       </Container>
@@ -33,7 +44,7 @@ const Container = styled.div`
   background-color: #FB6B6B;
   width: 100vw;
   min-height: 100vh;
-  display: flex;
+  display: ${props => props.display ? 'none' : 'flex'};
   flex-direction: column;
   align-items: center;
   margin: 0px;
@@ -51,6 +62,7 @@ const LogoContainer = styled.div`
       width: 52px;
     }
     h1{
+      
       font-family: 'Righteous';
   font-style: normal;
   font-weight: 400;
@@ -58,6 +70,51 @@ const LogoContainer = styled.div`
   line-height: 45px;
   color: #FFFFFF;
   margin-left: 20px;
+    }
+`
+
+const TelaEntrada = styled.div`
+    min-width: 100%;
+    min-height: 100vh;
+    position:absolute;
+    background-color: #FB6B6B;
+    display:${props => !props.display ? 'none' : 'flex'};
+flex-direction: column;
+align-items: center;
+div{
+    background-color: #FB6B6B;
+    display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin:auto;
+
+}
+    h1{
+      font-family: 'Righteous';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 45px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.012em;
+margin-top:20px;
+      margin-bottom:20px;
+color: #FFFFFF;
+    }
+
+    button {
+      font-family: 'Recursive';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: center;
+
+color: #D70900;
     }
 `
 
