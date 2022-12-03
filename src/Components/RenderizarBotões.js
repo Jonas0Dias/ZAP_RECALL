@@ -6,7 +6,7 @@ export default function RenderizaBotões(props){
     const [resultado, setResultado] = React.useState({cor:'teste',icone:'teste'})
         return(
             <>
-                    <ButtonQuestionClosed display={props.listaclicados.includes(props.c) ? true : false}>
+                    <ButtonQuestionClosed data-test="flashcard" display={props.listaclicados.includes(props.c) ? true : false}>
                         <h1 data-teste="flashcard-text">Pergunta {cards.indexOf(props.c) + 1} </h1>
                         <ion-icon data-teste="play-btn" name="caret-forward-outline"
                             onClick={() => {  
@@ -21,7 +21,7 @@ export default function RenderizaBotões(props){
 
 
 
-                    <ButtonQuestionOpened display={!props.listaclicados.includes(props.c) || props.listaclicados2.includes(props.c) ? true : false}>
+                    <ButtonQuestionOpened data-test="flashcard" display={!props.listaclicados.includes(props.c) || props.listaclicados2.includes(props.c) ? true : false}>
                         <h1 data-teste="flashcard-text"> {props.c.question}</h1>
                         <img data-teste="turn-btn" src='assets/img/seta_virar.png'
                             onClick={() => {
@@ -34,10 +34,11 @@ export default function RenderizaBotões(props){
 
 
 
-                    <ButtonAnswer display={!props.listaclicados2.includes(props.c) || props.listaclicados3.includes(props.c) ? true : false}>
+                    <ButtonAnswer data-test="flashcard" display={!props.listaclicados2.includes(props.c) || props.listaclicados3.includes(props.c) ? true : false}>
                         <h1 data-teste="flashcard-text"> {props.c.answer}</h1>
                         <div>
                             <button
+                            data-teste="no-btn"
                                 onClick={() => {
                                     
                                     props.setContador(props.contador+1)
@@ -50,7 +51,9 @@ export default function RenderizaBotões(props){
                                 }}>Não Lembrei
                             </button>
 
-                            <button onClick={() => {
+                            <button 
+                                data-teste="partial-btn"
+                                onClick={() => {
                                 props.setContador(props.contador+1)
                                 props.setListaClicados3([...props.listaclicados3, props.c])
                                 setResultado({cor:'#FF922E',icone:'assets/img/icone_quase.png'}) 
@@ -59,7 +62,9 @@ export default function RenderizaBotões(props){
                             </button>
 
 
-                            <button onClick={() => {
+                            <button 
+                                data-teste="zap-btn"
+                                onClick={() => {
                                 props.setContador(props.contador+1)
                                 props.setListaClicados3([...props.listaclicados3, props.c])
                                 setResultado({cor:'#2FBE34',icone:'assets/img/icone_certo.png'})    
@@ -73,7 +78,7 @@ export default function RenderizaBotões(props){
 
 
 
-                    <ButtonFinish   cor={resultado.cor} display={!props.listaclicados3.includes(props.c) ? true : false}>
+                    <ButtonFinish data-test="flashcard"  cor={resultado.cor} display={!props.listaclicados3.includes(props.c) ? true : false}>
                         
                             <h1 data-teste="flashcard-text">Pergunta {cards.indexOf(props.c) + 1}</h1>
                             <img data-test = {resultado.icone === 'assets/img/icone_erro.png' ? 'no-icon' : resultado.icone === 'assets/img/icone_quase.png' ? 'partial-icon' : resultado.icone === 'assets/img/icone_certo.png' ? 'zap-icon' : ''} src={resultado.icone}></img>

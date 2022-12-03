@@ -7,7 +7,7 @@ export default function Perguntas(props) {
     return (
 
         <ContainerAllQuestions>
-            <Buttons data-test="flashcard" contador={props.contador} setContador={props.setContador} resultadoicone={props.resultadoicone} setResultadoIcone={props.setResultadoIcone}></Buttons>
+            <Buttons  contador={props.contador} setContador={props.setContador} resultadoicone={props.resultadoicone} setResultadoIcone={props.setResultadoIcone}></Buttons>
         </ContainerAllQuestions>
 
 
