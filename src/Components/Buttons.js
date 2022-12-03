@@ -6,9 +6,9 @@ import RenderizaBotões from './RenderizarBotões';
 // const [displayopen,setDisplayOpen] = React.useState(false)
 
 export default function Buttons(props) {
+    
 
-
-
+    
     const [listaclicados, setListaClicados] = React.useState([])
     const [listaclicados2, setListaClicados2] = React.useState([])
     const [listaclicados3, setListaClicados3] = React.useState([])
@@ -17,7 +17,7 @@ export default function Buttons(props) {
         <>
             {cards.map(c =>
                 <>
-                    <RenderizaBotões c={c} listaclicados={listaclicados} setListaClicados={setListaClicados} listaclicados2={listaclicados2} setListaClicados2={setListaClicados2} listaclicados3={listaclicados3} setListaClicados3={setListaClicados3} contador={props.contador} setContador={props.setContador} ></RenderizaBotões>
+                    <RenderizaBotões c={c} listaclicados={listaclicados} setListaClicados={setListaClicados} listaclicados2={listaclicados2} setListaClicados2={setListaClicados2} listaclicados3={listaclicados3} setListaClicados3={setListaClicados3} contador={props.contador} setContador={props.setContador}  resultadoicone={props.resultadoicone} setResultadoIcone={props.setResultadoIcone}></RenderizaBotões>
                 </>
             )
             }

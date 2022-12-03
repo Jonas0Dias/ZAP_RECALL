@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import cards from './cards';
 export default function Footer(props){
+    // console.log(props.resultadoicone)
     return(
-        <Rodape>{props.contador}/{cards.length} Concluídos</Rodape>
+        <Rodape data-teste="footer">{props.contador}/{cards.length} Concluídos</Rodape>
     )
 }
 

@@ -7,6 +7,8 @@ import cards from './Components/cards';
 function App() {
   const [contador, setContador] = React.useState(0)
   const [entrada,setEntrada] = React.useState(true)
+  const[resultadoicone, setResultadoIcone] = React.useState('teste')
+
   return (
     <>
       <GlobalStyle />
@@ -25,10 +27,10 @@ function App() {
 
 
         </LogoContainer>
-        <Perguntas contador={contador} setContador={setContador}>
+        <Perguntas contador={contador} setContador={setContador} resultadoicone={resultadoicone} setResultadoIcone={setResultadoIcone}>
 
         </Perguntas>
-        <Footer contador={contador} setContador={setContador}></Footer>
+        <Footer contador={contador} setContador={setContador} resultadoicone={resultadoicone} setResultadoIcone={setResultadoIcone}></Footer>
       </Container>
 
     </>

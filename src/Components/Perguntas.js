@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Buttons from './Buttons';
 
 export default function Perguntas(props) {
-    
+
     return (
 
         <ContainerAllQuestions>
-            <Buttons contador={props.contador} setContador={props.setContador}></Buttons>
+            <Buttons data-test="flashcard" contador={props.contador} setContador={props.setContador} resultadoicone={props.resultadoicone} setResultadoIcone={props.setResultadoIcone}></Buttons>
         </ContainerAllQuestions>
 
 
